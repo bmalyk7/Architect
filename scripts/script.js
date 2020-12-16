@@ -10,6 +10,11 @@ const switchRound = document.querySelector('.switch_wrapper');
 const rounds = document.querySelectorAll('.switch_round');
 const textSw = document.querySelector('.slider_text');
 const portfolioCont = document.querySelector('.portfolio_content');
+const wrappers = document.querySelectorAll('.wrapper_item');
+const wrapItems = document.querySelectorAll('.bg')
+const descrs = document.querySelectorAll('.descr_block');
+const box = document.querySelector('.content_box');
+const upper = document.querySelector('.upper');
 
 
 
@@ -58,18 +63,6 @@ switchRound.addEventListener('click',(e)=>{
 })
 
 
-
-console.log()
-
-
-const wrapItems = document.querySelectorAll('.bg')
-const descrs = document.querySelectorAll('.descr_block');
-const box = document.querySelector('.content_box');
-
-console.log(box);
-console.log(wrapItems);
-
-
 function add(i){
         wrapItems[i].classList.add('active');
         descrs[i].classList.add('active');
@@ -90,7 +83,6 @@ const wrap = document.querySelector('.wrapper_item')
 box.addEventListener('mouseover',(e)=>{
     const target = e.target;
     if(target&&target.classList.contains('bg')){
-        // console.log("hi");
         wrapItems.forEach((item,i)=>{
             if(item==target){
                 add(i);
@@ -103,11 +95,50 @@ box.addEventListener('mouseover',(e)=>{
 box.addEventListener('mouseout',(e)=>{
     const target = e.target;
     if(target&&target.classList.contains('bg')){
-        // console.log("hi");
-        wrapItems.forEach((item,i)=>{
+        wrapItems.forEach((item)=>{
             if(item==target){
                 clean();
             }
         })
     }
 })
+
+
+document.addEventListener('scroll',()=>{
+    if(document.documentElement.scrollTop >= 500){
+        upper.classList.add('active');
+    }if(document.documentElement.scrollTop >= 890){
+        wrappers[0].classList.add('change');
+        wrappers[3].classList.add('change');
+    }if(document.documentElement.scrollTop >= 1320){
+        wrappers[4].classList.add('change');
+    } if(document.documentElement.scrollTop >= 1590){
+        wrappers[1].classList.add('change');
+    }if(document.documentElement.scrollTop >= 1800){
+        wrappers[5].classList.add('change');
+    }if(document.documentElement.scrollTop >= 2000){
+        wrappers[2].classList.add('change');
+    }if(document.documentElement.scrollTop >= 2140){
+        wrappers[6].classList.add('change');
+    }
+})
+
+document.addEventListener('scroll',()=>{
+    if(document.documentElement.scrollTop >= 500){
+        upper.classList.add('active');
+    }if(document.documentElement.scrollTop < 500){
+        upper.classList.remove('active');
+    }
+})
+
+upper.addEventListener('click',()=>{
+    let a = setInterval(()=>{
+        document.documentElement.scrollTop = document.documentElement.scrollTop - 100
+        if( document.documentElement.scrollTop === 0){
+            clearInterval(a);
+        }
+    },10)
+})
+
+
+
