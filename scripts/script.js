@@ -15,9 +15,11 @@ const wrapItems = document.querySelectorAll('.bg')
 const descrs = document.querySelectorAll('.descr_block');
 const box = document.querySelector('.content_box');
 const upper = document.querySelector('.upper');
+const pictures = document.querySelectorAll('.pic');
+const single = document.querySelector('.single');
+const portfolio = document.querySelector('.portfolio');
 
-
-
+let x = 0;
 
 dropdownItem.addEventListener('mouseenter', () =>{
     dropdown.style.display = 'block';
@@ -63,17 +65,17 @@ switchRound.addEventListener('click',(e)=>{
 })
 
 
-function add(i){
-        wrapItems[i].classList.add('active');
-        descrs[i].classList.add('active');
+
+
+function add(arr,i){
+    arr[i].classList.add('active');
 }
 
-function clean(){
-    wrapItems.forEach((item)=>{
+
+
+function clean(arr){
+    arr.forEach((item)=>{
         item.classList.remove('active')
-    })
-    descrs.forEach((item)=>{
-        item.classList.remove('active');
     })
 }
 
@@ -85,7 +87,8 @@ box.addEventListener('mouseover',(e)=>{
     if(target&&target.classList.contains('bg')){
         wrapItems.forEach((item,i)=>{
             if(item==target){
-                add(i);
+                add(wrapItems,i);
+                add(descrs,i);
             }
         })
     }
@@ -97,7 +100,8 @@ box.addEventListener('mouseout',(e)=>{
     if(target&&target.classList.contains('bg')){
         wrapItems.forEach((item)=>{
             if(item==target){
-                clean();
+                clean(wrapItems);
+                clean(descrs);
             }
         })
     }
@@ -142,3 +146,55 @@ upper.addEventListener('click',()=>{
 
 
 
+
+
+document.addEventListener('scroll',()=>{
+    if(document.documentElement.scrollTop >= 80){
+        pictures[1].classList.add('active');
+    } if(document.documentElement.scrollTop >= 410){
+        pictures[2].classList.add('active');
+    } if(document.documentElement.scrollTop >= 700){
+        pictures[3].classList.add('active');
+    } if(document.documentElement.scrollTop >= 1000){
+        pictures[4].classList.add('active');
+    } if(document.documentElement.scrollTop >= 250){
+        document.querySelector('.describe_box').classList.add('fixed');
+    } if(document.documentElement.scrollTop <= 250){
+        document.querySelector('.describe_box').classList.remove('fixed');
+    }
+})
+
+
+
+
+
+function change (){
+    if(x==0){
+        portfolio.style.display = 'block';
+        single.style.display = 'none';
+    }if(x==1){
+        portfolio.style.display = 'none';
+        single.style.display = 'block';
+    }
+}
+
+
+const menu = document.querySelector('menu');
+const linkItem = document.querySelectorAll('.link_menu')
+console.log(menu);
+
+
+menu.addEventListener('click',(e)=>{
+    const target = e.target;
+    if(target&&target.classList.contains('first')){
+        x=0;
+        change();
+        clean(linkItem)
+        add(linkItem,0)
+    } if(target&&target.classList.contains('second')){
+        x=1;
+        change();
+        clean(linkItem)
+        add(linkItem,1)
+    }
+})

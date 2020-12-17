@@ -63,6 +63,15 @@ body{
 }
 
 
+.active.first{
+    color: red;
+}
+.active.second{
+    color: red;
+}
+
+
+
 @keyframes example{
     from{margin-top: 20px;}
     to{margin-top: 0px;}
@@ -406,8 +415,153 @@ opacity: 1;
 }
 
 
+.single{
+    padding-left: 100px;
+    padding-right: 110px;
+}
 
 
+
+.title{
+    widows: 100%;
+    height: 180px;
+    text-align: left;
+}
+.active.title{
+    animation-name:opas,forTitle;
+    animation-duration:1s,1.3s;
+}
+
+.main_block{
+    position: relative;
+    display: flex;
+}
+
+
+.pictures_box{
+    display: flex;
+    flex-direction: column;
+    width: 44vw
+
+}
+
+.pictures1{
+    display: none;
+    margin-top: 20px;
+    background:url('../img/portfolio-5.jpg')center center/cover no-repeat;
+    width: 90%;
+    height: 60vh;
+    opacity: 0;
+}
+
+.pictures2{
+    display: none;
+    margin-top: 20px;
+    background:url('../img/portfolio-2.jpg')center center/cover no-repeat;
+    width: 90%;
+    height: 60vh;
+}
+
+.pictures3{
+    display: none;
+    margin-top: 20px;
+    background:url('../img/portfolio-4.jpg')center center/cover no-repeat;
+    width: 90%;
+    height: 60vh;
+}
+
+
+
+
+.pictures4{
+    display: none;
+    margin-top: 20px;
+    background:url('../img/img_bg_1.jpg')center center/cover no-repeat;
+    width: 90%;
+    height: 60vh;
+}
+
+.pictures5{
+    margin-top: 20px;
+    display: none;
+    background:url('../img/portfolio-7.jpg')center center/cover no-repeat;
+    width: 90%;
+    height: 60vh;
+}
+
+.active.pictures1{
+    display: block;
+    animation-name:opas, forPic;
+    animation-duration: 1.5s, 1.5s;
+    opacity: 1;
+}
+.active.pictures2{
+    display: block;
+    animation-name:opas, forPic;
+    animation-duration: 1.5s, 1.5s;
+    opacity: 1;
+}
+.active.pictures3{
+    display: block;
+    animation-name:opas, forPic;
+    animation-duration: 1.5s, 1.5s;
+    opacity: 1;
+}
+.active.pictures4{
+    display: block;
+    animation-name:opas, forPic;
+    animation-duration: 1.5s, 1.5s;
+    opacity: 1;
+}
+.active.pictures5{
+    display: block;
+    animation-name:opas, forPic;
+    animation-duration: 1.5s, 1.5s;
+    opacity: 1;
+}
+
+
+.describe_box{
+    display: block;
+    width: 33vw;
+   
+}
+.fixed.describe_box{
+    position: fixed;
+    top: 112px;
+    left: 725px;
+}
+
+
+.describe_box h3{
+    font-size: 25px;
+}
+
+.describe_box span{
+    display: block;
+    margin-top: 20px;
+    color:grey;
+    opacity: 0.7;
+}
+
+.describe_box p{
+    font-size: 20px;
+    display: block;
+    margin-top: 20px;
+    color:grey;
+    opacity: 0.9;
+}
+
+.descr_btn{
+    display: block;
+    margin-top: 20px;
+    width: 110px;;
+    height: 40px;
+    background-color:red;
+    color:white;
+    border:none;
+    opacity: 0.7;
+}
 
 
 
@@ -444,4 +598,14 @@ opacity: 1;
 @keyframes forWrapp{
     from{margin-top: 120px;}
     to{margin-top: 20px;}
+}
+
+@keyframes forPic{
+    from{margin-top: 200px;}
+    to{margin-top: 20px;}
+}
+
+@keyframes forTitle{
+    from{margin-top: 200px;}
+    to{margin-top: 0px;}
 }
