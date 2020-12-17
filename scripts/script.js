@@ -149,13 +149,13 @@ upper.addEventListener('click',()=>{
 
 
 document.addEventListener('scroll',()=>{
-    if(document.documentElement.scrollTop >= 80){
+    if(document.documentElement.scrollTop >= 90){
         pictures[1].classList.add('active');
-    } if(document.documentElement.scrollTop >= 410){
+    } if(document.documentElement.scrollTop >= 510){
         pictures[2].classList.add('active');
-    } if(document.documentElement.scrollTop >= 700){
+    } if(document.documentElement.scrollTop >= 800){
         pictures[3].classList.add('active');
-    } if(document.documentElement.scrollTop >= 1000){
+    } if(document.documentElement.scrollTop >= 1100){
         pictures[4].classList.add('active');
     } if(document.documentElement.scrollTop >= 250){
         document.querySelector('.describe_box').classList.add('fixed');
