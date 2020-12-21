@@ -3,7 +3,7 @@
 
 
 const nav = document.querySelector('.nav_bar');
-const dropdownItem = document.querySelector('#drop');
+const dropdownItem = document.querySelector('.drop');
 const dropdown = document.querySelector('.dropdown');
 const items = document.querySelectorAll('.item');
 const switchRound = document.querySelector('.switch_wrapper');
@@ -18,15 +18,21 @@ const upper = document.querySelector('.upper');
 const pictures = document.querySelectorAll('.pic');
 const single = document.querySelector('.single');
 const portfolio = document.querySelector('.portfolio');
+const test = document.querySelectorAll('.wrapper_items');
+const hamburger = document.querySelector('.hamburger');
+const spans = document.querySelectorAll('.stick');
+const destWrap = document.querySelector('.dest_wrapper');
 
-let x = 0;
+let a = 0;
 
 dropdownItem.addEventListener('mouseenter', () =>{
     dropdown.style.display = 'block';
+    test[3].classList.add('change');
 })
 
 dropdownItem.addEventListener('mouseleave', () =>{
     dropdown.style.display = 'none';
+    test[3].classList.remove('change');;
 })
 
 
@@ -49,6 +55,23 @@ function off(){
 }
 
 
+
+function infinity(){
+    
+    setInterval(()=>{
+        a++;
+        off()
+        on(a)
+        if(a==3){
+            a=-1        }
+    },3000)
+    }
+
+
+console.log(switchRound)
+
+
+infinity();
 
 
 
@@ -109,20 +132,20 @@ box.addEventListener('mouseout',(e)=>{
 
 
 document.addEventListener('scroll',()=>{
-    if(document.documentElement.scrollTop >= 500){
+    if(document.documentElement.scrollTop >= 300){
         upper.classList.add('active');
-    }if(document.documentElement.scrollTop >= 890){
+    }if(document.documentElement.scrollTop >= 690){
         wrappers[0].classList.add('change');
         wrappers[3].classList.add('change');
-    }if(document.documentElement.scrollTop >= 1320){
+    }if(document.documentElement.scrollTop >= 1120){
         wrappers[4].classList.add('change');
-    } if(document.documentElement.scrollTop >= 1590){
+    } if(document.documentElement.scrollTop >= 1490){
         wrappers[1].classList.add('change');
-    }if(document.documentElement.scrollTop >= 1800){
+    }if(document.documentElement.scrollTop >= 1600){
         wrappers[5].classList.add('change');
-    }if(document.documentElement.scrollTop >= 2000){
+    }if(document.documentElement.scrollTop >= 1700){
         wrappers[2].classList.add('change');
-    }if(document.documentElement.scrollTop >= 2140){
+    }if(document.documentElement.scrollTop >= 1890){
         wrappers[6].classList.add('change');
     }
 })
@@ -157,14 +180,13 @@ document.addEventListener('scroll',()=>{
         pictures[3].classList.add('active');
     } if(document.documentElement.scrollTop >= 1100){
         pictures[4].classList.add('active');
-    } if(document.documentElement.scrollTop >= 250){
-        document.querySelector('.describe_box').classList.add('fixed');
+    }
+     if(document.documentElement.scrollTop >= 250){
+        document.querySelector('.describe_box').classList.add('sticky');
     } if(document.documentElement.scrollTop <= 250){
-        document.querySelector('.describe_box').classList.remove('fixed');
+        document.querySelector('.describe_box').classList.remove('sticky');
     }
 })
-
-
 
 
 
@@ -172,14 +194,17 @@ function change (){
     if(x==0){
         portfolio.style.display = 'block';
         single.style.display = 'none';
+        humb();
+        
     }if(x==1){
         portfolio.style.display = 'none';
         single.style.display = 'block';
+        humb();
     }
 }
 
 
-const menu = document.querySelector('menu');
+const menu = document.querySelector('ul');
 const linkItem = document.querySelectorAll('.link_menu')
 console.log(menu);
 
@@ -198,3 +223,17 @@ menu.addEventListener('click',(e)=>{
         add(linkItem,1)
     }
 })
+
+
+
+
+hamburger.addEventListener('click',()=>{
+   humb();
+})
+
+function humb (){
+    spans.forEach((item)=>{
+        item.classList.toggle('active');
+    })
+    destWrap.classList.toggle('active');
+}
