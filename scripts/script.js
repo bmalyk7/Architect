@@ -23,7 +23,7 @@ const hamburger = document.querySelector('.hamburger');
 const spans = document.querySelectorAll('.stick');
 const destWrap = document.querySelector('.dest_wrapper');
 
-let a = 0;
+
 
 dropdownItem.addEventListener('mouseenter', () =>{
     dropdown.style.display = 'block';
@@ -54,24 +54,24 @@ function off(){
     });
 }
 
-
+let counter = 0;
 
 function infinity(){
     
     setInterval(()=>{
-        a++;
-        off()
-        on(a)
-        if(a==3){
-            a=-1        }
+        if(counter < 3){
+            counter++;
+            off()
+            on(counter)
+        }
+        else{
+            counter = -1;       
+        }
     },3000)
     }
 
 
-console.log(switchRound)
 
-
-infinity();
 
 
 
@@ -80,13 +80,15 @@ switchRound.addEventListener('click',(e)=>{
     if(target&&target.classList.contains('switch_round')){
         rounds.forEach((item,i)=>{
             if(item==target){
+                counter = i;
                 off();
-                on(i);
+                on(counter);   
             }
         })
     }
 })
 
+infinity();
 
 
 
@@ -194,13 +196,15 @@ function change (){
     if(x==0){
         portfolio.style.display = 'block';
         single.style.display = 'none';
-        humb();
         
     }if(x==1){
         portfolio.style.display = 'none';
         single.style.display = 'block';
+    }
+    if(destWrap.classList.contains('active')){
         humb();
     }
+    
 }
 
 
@@ -223,9 +227,6 @@ menu.addEventListener('click',(e)=>{
         add(linkItem,1)
     }
 })
-
-
-
 
 hamburger.addEventListener('click',()=>{
    humb();
